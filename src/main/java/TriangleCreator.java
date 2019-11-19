@@ -15,7 +15,7 @@ public class TriangleCreator {
     }
 
     public Optional<Triangle> create(String line){
-        List<Double> trianglePoints = parser(line);
+        List<Double> trianglePoints = parseToDouble(line);
         if(validator.isTriangleValid(trianglePoints)){
             double x1 = trianglePoints.get(0);
             double y1 = trianglePoints.get(1);
@@ -28,7 +28,7 @@ public class TriangleCreator {
         return Optional.empty();
    }
 
-    private List<Double> parser(String line) {
+    private List<Double> parseToDouble(String line) {
 
        List<Double> listDoubles = new ArrayList<>();
        String[] arr = line.split(" ");
