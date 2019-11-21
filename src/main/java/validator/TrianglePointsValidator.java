@@ -4,10 +4,9 @@ import entity.Axis;
 
 import java.util.List;
 
-public class TrianglePointsValidator implements CheckTriangle {
+public class TrianglePointsValidator {
 
-    @Override
-    public Boolean isTriangleValid(List<Double> listPoints){
+    public Boolean isValidTriangle(List<Double> listPoints){
         double x1 = listPoints.get(0);
         double y1 = listPoints.get(1);
         double x2 = listPoints.get(2);
@@ -15,19 +14,21 @@ public class TrianglePointsValidator implements CheckTriangle {
         double x3 = listPoints.get(4);
         double y3 = listPoints.get(5);
         double square = (((x1 - x3)*(y2 - y3)) - (x2 - x3)*(y1 - y3))/2;
-        for(int i = 0; i < listPoints.size(); i++){
-            if(!(isPointsInRange(listPoints.indexOf(i), listPoints.indexOf(i+1)))){
-                return false;
-            }
-        }
+
         return square > 0;
     }
 
-    private Boolean isPointsInRange(double x, double y){
+    public Boolean isPointsInRange(List<Double> listPoints){
         double xMin = Axis.X_AXIS_MIN.getValue();
         double xMax = Axis.Y_AXIS_MAX.getValue();
         double yMin = Axis.Y_AXIS_MIN.getValue();
         double yMax = Axis.X_AXIS_MAX.getValue();
+        double x = 0;
+        double y = 0;
+        for(int i = 0; i < listPoints.size(); i++){
+            x = listPoints.indexOf(i);
+            y = listPoints.indexOf(i+1);
+        }
 
         return ((xMin >= x && x <= xMax) && (yMin >= y && y <= yMax));
     }
