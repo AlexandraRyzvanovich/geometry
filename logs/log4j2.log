@@ -1,12 +1,4 @@
-2019-11-19 16:33:10,099 INFO r.DataReader [main] File was parsed successfully
-2019-11-19 16:33:17,083 INFO v.TriangleDataValidator [main] Validating line
-2019-11-19 16:33:43,193 INFO v.TriangleDataValidator [main] Validating line
-2019-11-19 16:33:47,068 INFO r.DataReader [main] File was parsed successfully
-2019-11-19 16:33:51,740 INFO v.TriangleDataValidator [main] Validating line
-2019-11-19 16:36:25,677 INFO v.TriangleDataValidator [main] Validating line
-2019-11-19 16:36:30,458 INFO r.DataReader [main] File was parsed successfully
-2019-11-19 16:36:36,677 INFO v.TriangleDataValidator [main] Validating line
-2019-11-19 16:38:30,006 INFO v.TriangleDataValidator [main] Validating line
-2019-11-19 16:39:23,271 INFO r.DataReader [main] File was parsed successfully
-2019-11-19 16:39:39,677 INFO v.TriangleDataValidator [main] Validating line
-2019-11-19 16:40:31,833 INFO v.TriangleDataValidator [main] Validating line
+2019-11-21 15:37:17,762 INFO r.DataReader [main] File was parsed successfully
+2019-11-21 15:38:28,918 INFO r.DataReader [main] File was parsed successfully
+2019-11-21 15:51:29,496 INFO r.DataReader [main] File was parsed successfully
+2019-11-21 16:14:07,777 INFO r.DataReader [main] File was parsed successfully

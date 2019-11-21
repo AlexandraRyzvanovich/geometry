@@ -1,6 +1,8 @@
+package utils;
+
 import exception.ConverterException;
-import utils.Point;
-import utils.Triangle;
+import entity.Point;
+import entity.Triangle;
 import validator.TrianglePointsValidator;
 
 import java.util.ArrayList;

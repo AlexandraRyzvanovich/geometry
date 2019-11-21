@@ -1,4 +1,4 @@
-package utils;
+package entity;
 
 public class Point {
     private double x;

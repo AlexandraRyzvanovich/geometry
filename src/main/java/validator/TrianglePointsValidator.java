@@ -1,6 +1,6 @@
 package validator;
 
-import utils.Axis;
+import entity.Axis;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ public class TrianglePointsValidator implements CheckTriangle {
                 return false;
             }
         }
-        return square > 0 ? true : false;
+        return square > 0;
     }
 
     private Boolean isPointsInRange(double x, double y){
@@ -29,8 +29,6 @@ public class TrianglePointsValidator implements CheckTriangle {
         double yMin = Axis.Y_AXIS_MIN.getValue();
         double yMax = Axis.X_AXIS_MAX.getValue();
 
-            return ((xMin >= x && x <= xMax) && (yMin >= y && y <= yMax));
+        return ((xMin >= x && x <= xMax) && (yMin >= y && y <= yMax));
     }
-
-
 }
