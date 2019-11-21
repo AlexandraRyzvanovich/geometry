@@ -16,3 +16,6 @@
 2019-11-21 20:45:02,475 INFO r.DataReader [main] File was parsed successfully
 2019-11-21 20:45:02,478 INFO v.TriangleDataValidator [main] Validating line
 2019-11-21 20:45:02,490 INFO v.TriangleDataValidator [main] Validating line
+2019-11-21 21:13:22,560 INFO r.DataReader [main] File was parsed successfully
+2019-11-21 21:13:22,562 INFO v.TriangleDataValidator [main] Validating line
+2019-11-21 21:13:22,569 INFO v.TriangleDataValidator [main] Validating line

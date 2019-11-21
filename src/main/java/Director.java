@@ -6,8 +6,6 @@ import validator.CheckTriangle;
 import validator.TriangleDataValidator;
 import validator.TrianglePointsValidator;
 
-import javax.xml.crypto.Data;
-import java.io.Reader;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,19 +32,20 @@ public class Director {
             List<String> list = reader.readLines("C:\\Users\\sasha\\IdeaProjects\\geometry\\src\\main\\resources\\triangleData");
             for (String line: list) {
                 if(dataValidator.isValidLine(line)){
+                    checkTriangle = trianglePoints -> validator.isPointsInRange(trianglePoints) && validator.isValidTriangle(trianglePoints);
                     creator = new TriangleCreator(checkTriangle);
-                    List<Double> doubleList =  creator.parseToDouble(line);
-                    checkTriangle = trianglePoints -> validator.isValidTriangle(doubleList) && validator.isPointsInRange(doubleList);
                     creator.create(line);
                     Optional<Triangle> optionalTriangle = creator.create(line);
-                    Triangle triangle = optionalTriangle.get();
-                    calculator.getPerimeter(triangle);
-                    calculator.getSquare(triangle);
-                    calculator.isAcuteAngled();
-                    calculator.isEqualSides();
-                    calculator.isEquilateral();
-                    calculator.isObtuseAngle();
-                    calculator.isRightAngled();
+                    if(optionalTriangle.isPresent()) {
+                        Triangle triangle = optionalTriangle.get();
+                        calculator.getPerimeter(triangle);
+                        calculator.getSquare(triangle);
+                        calculator.isAcuteAngled();
+                        calculator.isEqualSides();
+                        calculator.isEquilateral();
+                        calculator.isObtuseAngle();
+                        calculator.isRightAngled();
+                     }
                 }
             }
     }
