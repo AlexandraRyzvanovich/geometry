@@ -10,4 +10,11 @@ public enum Axis {
     public Double getValue(){
         return value;
     }
+
+    @Override
+    public String toString() {
+        return "Axis{" +
+                "value=" + value +
+                '}';
+    }
 }

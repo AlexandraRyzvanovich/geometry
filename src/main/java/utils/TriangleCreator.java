@@ -4,7 +4,6 @@ import exception.ConverterException;
 import entity.Point;
 import entity.Triangle;
 import validator.CheckTriangle;
-import validator.TrianglePointsValidator;
 
 import java.util.ArrayList;
 import java.util.List;

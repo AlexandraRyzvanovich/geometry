@@ -10,20 +10,14 @@ import java.util.List;
 import java.util.Optional;
 
 public class Director {
-    static DataReader reader;
-    static TriangleDataValidator dataValidator;
-    static Calculator calculator;
-    static TrianglePointsValidator validator;
-    static TriangleCreator creator;
-    static CheckTriangle checkTriangle;
+    DataReader reader;
+    TriangleDataValidator dataValidator;
+    Calculator calculator;
+    TrianglePointsValidator validator;
+    TriangleCreator creator;
+    CheckTriangle checkTriangle;
 
-    public Director(DataReader reader, TriangleDataValidator dataValidator, Calculator calculator) {
-        this.reader = reader;
-        this.dataValidator = dataValidator;
-        this.calculator = calculator;
-    }
-
-    public static void main(String[] args) {
+    public void runner() {
         reader = new DataReader();
         dataValidator = new TriangleDataValidator();
         calculator = new Calculator();
@@ -38,13 +32,15 @@ public class Director {
                     Optional<Triangle> optionalTriangle = creator.create(line);
                     if(optionalTriangle.isPresent()) {
                         Triangle triangle = optionalTriangle.get();
-                        calculator.getPerimeter(triangle);
-                        calculator.getSquare(triangle);
+                        calculator.getSides(triangle);
+                        double firstSide = triangle.getFirstSide();
+                        double secondSide = triangle.getSecondSide();
+                        double thirdSide = triangle.getThirdSide();
+                        calculator.getPerimeter(firstSide, secondSide, thirdSide);
+                        calculator.getSquare(firstSide, secondSide, thirdSide);
                         calculator.isAcuteAngled();
                         calculator.isEqualSides();
                         calculator.isEquilateral();
-                        calculator.isObtuseAngle();
-                        calculator.isRightAngled();
                      }
                 }
             }

@@ -3,34 +3,30 @@ package utils;
 import entity.Point;
 import entity.Triangle;
 
+import javax.crypto.spec.PSource;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Calculator {
 
-    public Double getPerimeter(Triangle triangle){
-        List<Double> allTriangleSides = getSides(triangle);
-        double firstSide = allTriangleSides.get(0);
-        double secondSide = allTriangleSides.get(1);
-        double thirdSide = allTriangleSides.get(2);
+    public Double getPerimeter(double firstSide, double secondSide, double thirdSide){
 
         return (firstSide + secondSide + thirdSide);
     }
 
-    public Double getSquare(Triangle triangle){
-        double perimeter  = getPerimeter(triangle);
-        List<Double> allTriangleSides = getSides(triangle);
-        double firstSide = allTriangleSides.get(0);
-        double secondSide = allTriangleSides.get(1);
-        double thirdSide = allTriangleSides.get(2);
+    public Double getSquare(double firstSide, double secondSide, double thirdSide){
+        double perimeter  = getPerimeter(firstSide, secondSide, thirdSide );
 
         return Math.pow((perimeter*(perimeter-firstSide)
                 *(perimeter-secondSide)*(perimeter-thirdSide)),1.0/2.0);
     }
 
-    public Boolean isRightAngled(){
+    public Boolean isRightAngled(double firstSide, double secondSide, double thirdSide){ //прямоугольный
 
-       return true;
+        return firstSide*firstSide == secondSide*secondSide+thirdSide*thirdSide ||
+                secondSide*secondSide == firstSide*firstSide+thirdSide*thirdSide ||
+                thirdSide*thirdSide == secondSide*secondSide+firstSide*firstSide;
+
     }
 
     public Boolean isEqualSides(){
@@ -48,12 +44,15 @@ public class Calculator {
         return true;
     }
 
-    public Boolean isObtuseAngle(){
+    public Boolean isObtuseAngle(Triangle triangle ){
+
+
+
 
         return true;
     }
 
-    private List<Double> getSides(Triangle triangle){
+    public Triangle getSides(Triangle triangle){
 
         Point firstPoint = triangle.getFirstPoint();
         double x1 = firstPoint.getX();
@@ -66,12 +65,12 @@ public class Calculator {
         double y3 = thirdPoint.getY();
         List<Double> listSides = new ArrayList<>();
         double firstSide = Math.pow(Math.pow((x1-x2),2)+Math.pow((y1-y2),2),1.0/2.0);
-        listSides.add(firstSide);
+        triangle.setFirstSide(firstSide);
         double secondSide = Math.pow(Math.pow((x1-x3),2)+Math.pow((y1-y3),2),1.0/2.0);
-        listSides.add(secondSide);
+        triangle.setFirstSide(secondSide);
         double thirdSide = Math.pow(Math.pow((x2-x3),2)+Math.pow((y2-y3),2),1.0/2.0);
-        listSides.add(thirdSide);
+        triangle.setFirstSide(thirdSide);
 
-        return listSides;
+        return triangle;
     }
 }

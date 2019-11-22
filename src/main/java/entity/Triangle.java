@@ -2,6 +2,8 @@ package entity;
 
 import entity.Point;
 
+import java.util.Objects;
+
 public class Triangle {
     private Point firstPoint;
     private Point secondPoint;
@@ -10,40 +12,23 @@ public class Triangle {
     private double secondSide;
     private double thirdSide;
 
+
     public Triangle(Point firstPoint, Point secondPoint, Point thirdPoint) {
         this.firstPoint = firstPoint;
         this.secondPoint = secondPoint;
         this.thirdPoint = thirdPoint;
     }
 
-    public Triangle(double firstSide, double secondSide, double thirdSide) {
-        this.firstSide = firstSide;
-        this.secondSide = secondSide;
-        this.thirdSide = thirdSide;
-    }
-
     public Point getFirstPoint() {
         return firstPoint;
-    }
-
-    public void setFirstPoint(Point firstPoint) {
-        this.firstPoint = firstPoint;
     }
 
     public Point getSecondPoint() {
         return secondPoint;
     }
 
-    public void setSecondPoint(Point secondPoint) {
-        this.secondPoint = secondPoint;
-    }
-
     public Point getThirdPoint() {
         return thirdPoint;
-    }
-
-    public void setThirdPoint(Point thirdPoint) {
-        this.thirdPoint = thirdPoint;
     }
 
     public double getFirstSide() {
@@ -68,5 +53,29 @@ public class Triangle {
 
     public void setThirdSide(double thirdSide) {
         this.thirdSide = thirdSide;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Triangle)) return false;
+        Triangle triangle = (Triangle) o;
+        return getFirstPoint().equals(triangle.getFirstPoint()) &&
+                getSecondPoint().equals(triangle.getSecondPoint()) &&
+                getThirdPoint().equals(triangle.getThirdPoint());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getFirstPoint(), getSecondPoint(), getThirdPoint());
+    }
+
+    @Override
+    public String toString() {
+        return "Triangle{" +
+                "firstPoint=" + firstPoint +
+                ", secondPoint=" + secondPoint +
+                ", thirdPoint=" + thirdPoint +
+                '}';
     }
 }
