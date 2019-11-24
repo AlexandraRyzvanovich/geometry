@@ -19,15 +19,15 @@ public class TriangleCalculator {
         return (firstSide + secondSide + thirdSide);
     }
 
-    public Double calculateSquare(Triangle triangle){
+    public Double calculateSquare(Triangle triangle) {
         Side sides = calculateSides(triangle);
         double firstSide = sides.getFirstSide();
         double secondSide = sides.getSecondSide();
         double thirdSide = sides.getThirdSide();
         double perimeter  = calculatePerimeter(triangle);
 
-        return Math.pow((perimeter*(perimeter-firstSide)
-                *(perimeter-secondSide)*(perimeter-thirdSide)),1.0/2.0);
+        return Math.pow((perimeter * (perimeter - firstSide)
+                *(perimeter - secondSide) * (perimeter-thirdSide)), 1.0 / 2.0);
     }
 
     public Boolean isRectangular(Triangle triangle) { //прямоугольный
@@ -39,7 +39,7 @@ public class TriangleCalculator {
 
     }
 
-    public Boolean isEqualSides(Triangle triangle){ //равнобедренный
+    public Boolean isEqualSides(Triangle triangle) { //равнобедренный
         List<Double> angles = calculateAngles(triangle);
         double firstAngle = angles.get(0);
         double secondAngle = angles.get(1);
@@ -69,7 +69,7 @@ public class TriangleCalculator {
     public Boolean isObtuseAngle(Triangle triangle) { // тупоугольный
         List<Double> angles = calculateAngles(triangle);
         double firstAngle = angles.get(0);
-        double secondAngle =angles.get(1);
+        double secondAngle = angles.get(1);
         double thirdAngle = angles.get(2);
 
         return firstAngle > rightAngle && secondAngle > rightAngle && thirdAngle > rightAngle;
@@ -94,7 +94,7 @@ public class TriangleCalculator {
         return side;
     }
 
-    private List<Double> calculateAngles(Triangle triangle){
+    private List<Double> calculateAngles(Triangle triangle) {
         Side sides = calculateSides(triangle);
         double firstSide = sides.getFirstSide();
         double secondSide = sides.getSecondSide();
