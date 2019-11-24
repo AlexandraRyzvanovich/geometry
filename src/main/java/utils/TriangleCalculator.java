@@ -5,7 +5,7 @@ import entity.Side;
 import entity.Triangle;
 
 
-public class Calculator {
+public class TriangleCalculator {
 
     public Double calculatePerimeter(Triangle triangle){
         Side sides = calculateSides(triangle);
@@ -16,7 +16,7 @@ public class Calculator {
         return (firstSide + secondSide + thirdSide);
     }
 
-    public Double getSquare(Triangle triangle){
+    public Double calculateSquare(Triangle triangle){
         Side sides = calculateSides(triangle);
         double firstSide = sides.getFirstSide();
         double secondSide = sides.getSecondSide();

@@ -1,7 +1,6 @@
 import entity.Triangle;
 import exception.DataReaderException;
 import reader.DataReader;
-import utils.Calculator;
 import utils.TriangleCreator;
 import validator.TriangleDataValidator;
 import validator.TrianglePointsValidator;
@@ -13,7 +12,6 @@ import java.util.Optional;
 public class Director {
     private final DataReader reader;
     private final TriangleDataValidator dataValidator;
-    private final Calculator calculator;
     private final TrianglePointsValidator validator;
     private final TriangleCreator creator;
     private final TriangleValidator triangleValidator;
@@ -21,7 +19,6 @@ public class Director {
     public Director() {
         this.reader = new DataReader();;
         this.dataValidator = new TriangleDataValidator();
-        this.calculator = new Calculator();
         this.validator =  new TrianglePointsValidator();
         this.triangleValidator = new TrianglePointsValidator();
         this.creator = new TriangleCreator(triangleValidator);
