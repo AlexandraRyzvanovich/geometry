@@ -11,23 +11,27 @@ import java.util.List;
 import java.util.Optional;
 
 public class Director {
-    DataReader reader;
-    TriangleDataValidator dataValidator;
-    Calculator calculator;
-    TrianglePointsValidator validator;
-    TriangleCreator creator;
-    TriangleValidator checkTriangle;
+    private final DataReader reader;
+    private final TriangleDataValidator dataValidator;
+    private final Calculator calculator;
+    private final TrianglePointsValidator validator;
+    private final TriangleCreator creator;
+    private final TriangleValidator triangleValidator;
+
+    public Director() {
+        this.reader = new DataReader();;
+        this.dataValidator = new TriangleDataValidator();
+        this.calculator = new Calculator();
+        this.validator =  new TrianglePointsValidator();
+        this.triangleValidator = new TrianglePointsValidator();
+        this.creator = new TriangleCreator(triangleValidator);
+    }
 
     public void runner(String path) throws DataReaderException {
-        reader = new DataReader();
-        dataValidator = new TriangleDataValidator();
-        calculator = new Calculator();
-        validator = new TrianglePointsValidator();
 
             List<String> list = reader.readLines("C:\\Users\\sasha\\IdeaProjects\\geometry\\src\\main\\resources\\triangleData");
             for (String line: list) {
                 if(dataValidator.isValidLine(line)){
-                    creator = new TriangleCreator(checkTriangle);
                     creator.create(line);
                     Optional<Triangle> optionalTriangle = creator.create(line);
                     if(optionalTriangle.isPresent()) {
