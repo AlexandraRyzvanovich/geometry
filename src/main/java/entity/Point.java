@@ -21,21 +21,37 @@ public class Point {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Point)) return false;
+        if (this == o) {
+            return true;
+        }
+        if(o == null){
+            return false;
+        }
+        if(getClass() != o.getClass()){
+            return false;
+        }
         Point point = (Point) o;
-        return Double.compare(point.getX(), getX()) == 0 &&
-                Double.compare(point.getY(), getY()) == 0;
+        if(x != point.x){
+            return false;
+        }
+        if(y != point.y){
+            return false;
+        }
+        return true;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getX(), getY());
+        final int prime = 31;
+        int result = 1;
+        result = (int) (prime * result + x);
+        result = (int) (prime * result + y);
+        return result;
     }
 
     @Override
     public String toString() {
-        return "Point{" +
+        return "Point {" +
                 "x=" + x +
                 ", y=" + y +
                 '}';
