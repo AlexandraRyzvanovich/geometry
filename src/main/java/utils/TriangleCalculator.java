@@ -4,10 +4,12 @@ import entity.Point;
 import entity.Side;
 import entity.Triangle;
 
+import java.util.ArrayList;
+import java.util.List;
 
 public class TriangleCalculator {
 
-    public Double calculatePerimeter(Triangle triangle){
+    public Double calculatePerimeter(Triangle triangle) {
         Side sides = calculateSides(triangle);
         double firstSide = sides.getFirstSide();
         double secondSide = sides.getSecondSide();
@@ -27,39 +29,52 @@ public class TriangleCalculator {
                 *(perimeter-secondSide)*(perimeter-thirdSide)),1.0/2.0);
     }
 
-    public Boolean isRightAngled(Triangle triangle){ //прямоугольный
+    public Boolean isRectangular(Triangle triangle) { //прямоугольный
+        List<Double> angles = calculateAngles(triangle);
+        double firstAngle = angles.get(0);
+        double secondAngle = angles.get(1);
+        double thirdAngle = angles.get(2);
+        return firstAngle == 90 || secondAngle == 90 || thirdAngle == 90;
+
+    }
+
+    public Boolean isEqualSides(Triangle triangle){ //равнобедренный
+        List<Double> angles = calculateAngles(triangle);
+        double firstAngle = angles.get(0);
+        double secondAngle =angles.get(1);
+        double thirdAngle = angles.get(2);
+        return firstAngle == secondAngle || firstAngle == thirdAngle || thirdAngle == secondAngle;
+
+    }
+
+    public Boolean isEquilateral(Triangle triangle) { // равносторонний
         Side sides = calculateSides(triangle);
         double firstSide = sides.getFirstSide();
         double secondSide = sides.getSecondSide();
         double thirdSide = sides.getThirdSide();
 
-        return firstSide*firstSide == secondSide*secondSide+thirdSide*thirdSide ||
-                secondSide*secondSide == firstSide*firstSide+thirdSide*thirdSide ||
-                thirdSide*thirdSide == secondSide*secondSide+firstSide*firstSide;
-
+        return firstSide == secondSide && firstSide == thirdSide;
     }
 
-    public Boolean isEqualSides(){
+    public Boolean isAcuteAngled(Triangle triangle) { // остроугольный
+        List<Double> angles = calculateAngles(triangle);
+        double firstAngle = angles.get(0);
+        double secondAngle =angles.get(1);
+        double thirdAngle = angles.get(2);
 
-        return true;
+        return firstAngle < 90 && secondAngle < 90 && thirdAngle < 90;
     }
 
-    public Boolean isEquilateral(){
+    public Boolean isObtuseAngle(Triangle triangle) { // тупоугольный
+        List<Double> angles = calculateAngles(triangle);
+        double firstAngle = angles.get(0);
+        double secondAngle =angles.get(1);
+        double thirdAngle = angles.get(2);
 
-        return true;
+        return firstAngle > 90 && secondAngle > 90 && thirdAngle > 90;
     }
 
-    public Boolean isAcuteAngled(){
-
-        return true;
-    }
-
-    public Boolean isObtuseAngle(Triangle triangle ){
-
-        return true;
-    }
-
-    private Side calculateSides(Triangle triangle){
+    private Side calculateSides(Triangle triangle) {
 
         Point firstPoint = triangle.getFirstPoint();
         double x1 = firstPoint.getX();
@@ -70,11 +85,29 @@ public class TriangleCalculator {
         Point thirdPoint = triangle.getThirdPoint();
         double x3 = thirdPoint.getX();
         double y3 = thirdPoint.getY();
-        double firstSide = Math.pow(Math.pow((x1-x2),2)+Math.pow((y1-y2),2),1.0/2.0);
-        double secondSide = Math.pow(Math.pow((x1-x3),2)+Math.pow((y1-y3),2),1.0/2.0);
-        double thirdSide = Math.pow(Math.pow((x2-x3),2)+Math.pow((y2-y3),2),1.0/2.0);
+        double firstSide = Math.pow(Math.pow((x1 - x2), 2) + Math.pow((y1 - y2), 2), 1.0 / 2.0);
+        double secondSide = Math.pow(Math.pow((x1 - x3), 2) + Math.pow((y1 - y3), 2), 1.0 / 2.0);
+        double thirdSide = Math.pow(Math.pow((x2 - x3), 2) + Math.pow((y2 - y3), 2), 1.0 / 2.0);
         Side side = new Side(firstSide, secondSide, thirdSide);
 
         return side;
+    }
+
+    private List<Double> calculateAngles(Triangle triangle){
+        Side sides = calculateSides(triangle);
+        double firstSide = sides.getFirstSide();
+        double secondSide = sides.getSecondSide();
+        double thirdSide = sides.getThirdSide();
+        double firstAngle = Math.cos(Math.pow(firstSide, 2) +
+                Math.pow(thirdSide, 2) - Math.pow(secondSide, 2) / 2 * firstSide * thirdSide);
+        double secondAngle = Math.cos(Math.pow(firstSide, 2) +
+                Math.pow(secondSide, 2) - Math.pow(thirdSide, 2) / 2 * firstSide * secondSide);
+        double thirdAngle = Math.cos(Math.pow(secondSide, 2) +
+                Math.pow(thirdSide, 2) - Math.pow(firstSide, 2) / 2 * thirdSide * secondSide);
+        List<Double> angles = new ArrayList<>();
+        angles.add(firstAngle);
+        angles.add(secondAngle);
+        angles.add(thirdAngle);
+        return angles;
     }
 }
