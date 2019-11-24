@@ -1,5 +1,6 @@
 package reader;
 
+import exception.DataReaderException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
@@ -15,15 +16,7 @@ public class DataReaderTest {
         dataReader = new DataReader();
     }
 
-    @DataProvider
-    public Object[][] validDataForReader(){
-        return new Object[][]{
-                {"src/test/resources/triangleData", 1}
-        };
-    }
-
-    @Test(dataProvider = "validDataForReader")
-    public void readFileWithValidPathSuccessfully(String path, int expectedLength){
+    public void testReadLinesWithValidPathShouldReturnListString(String path, int expectedLength) throws DataReaderException {
         List<String> actualList = dataReader.readLines(path);
         Assert.assertNotNull(actualList);
         Assert.assertEquals(actualList.size(), expectedLength );
