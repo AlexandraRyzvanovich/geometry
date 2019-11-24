@@ -27,16 +27,35 @@ public class Side {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Side)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null){
+            return false;
+        }
+        if (getClass() != o.getClass()){
+            return false;
+        }
         Side side = (Side) o;
-        return Double.compare(side.firstSide, firstSide) == 0 &&
-                Double.compare(side.secondSide, secondSide) == 0 &&
-                Double.compare(side.thirdSide, thirdSide) == 0;
+        if(firstSide != side.firstSide){
+            return false;
+        }
+        if(secondSide != side.secondSide){
+            return false;
+        }
+        if(thirdSide != side.thirdSide){
+            return false;
+        }
+        return true;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstSide, secondSide, thirdSide);
+        final int prime = 31;
+        int result = 1;
+        result = (int)(prime * result + firstSide);
+        result = (int) (prime * result + secondSide);
+        result = (int) (prime * result + thirdSide);
+        return result;
     }
 }

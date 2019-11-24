@@ -30,17 +30,36 @@ public class Triangle {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Triangle)) return false;
+        if (this == o) {
+            return true;
+        }
+        if(o == null){
+            return false;
+        }
+        if(getClass() != o.getClass()){
+            return false;
+        }
         Triangle triangle = (Triangle) o;
-        return getFirstPoint().equals(triangle.getFirstPoint()) &&
-                getSecondPoint().equals(triangle.getSecondPoint()) &&
-                getThirdPoint().equals(triangle.getThirdPoint());
+        if(firstPoint != triangle.firstPoint){
+            return false;
+        }
+        if(secondPoint != triangle.secondPoint){
+            return false;
+        }
+        if(thirdPoint != triangle.thirdPoint){
+            return false;
+        }
+        return true;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getFirstPoint(), getSecondPoint(), getThirdPoint());
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + firstPoint.hashCode();
+        result = prime * result + secondPoint.hashCode();
+        result = prime * result + thirdPoint.hashCode();
+        return result;
     }
 
     @Override
