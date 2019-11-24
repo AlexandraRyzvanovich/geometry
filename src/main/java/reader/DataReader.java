@@ -13,7 +13,7 @@ import java.util.List;
 public class DataReader {
     private static Logger logger = LogManager.getLogger();
 
-    public  List<String> readLines(String path) {
+    public  List<String> readLines(String path) throws DataReaderException {
         BufferedReader bufferedReader = null;
         List<String> list = new ArrayList<>();
         try {

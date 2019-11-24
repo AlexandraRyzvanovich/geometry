@@ -1,18 +1,17 @@
 package utils;
 
-import exception.ConverterException;
 import entity.Point;
 import entity.Triangle;
-import validator.CheckTriangle;
+import validator.TriangleValidator;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 public class TriangleCreator {
-    private CheckTriangle validator;
+    private TriangleValidator validator;
 
-    public TriangleCreator(CheckTriangle validator) {
+    public TriangleCreator(TriangleValidator validator) {
         this.validator = validator;
     }
 
@@ -34,14 +33,10 @@ public class TriangleCreator {
 
        List<Double> listDoubles = new ArrayList<>();
        String[] arr = line.split(" ");
-       try {
            for (String item : arr) {
                double value = Double.parseDouble(item);
                listDoubles.add(value);
            }
-       }catch (NumberFormatException ex){
-           throw new ConverterException("Impossible to convert string", ex);
-       }
        return listDoubles;
    }
 }

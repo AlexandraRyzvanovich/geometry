@@ -1,10 +1,11 @@
 import entity.Triangle;
+import exception.DataReaderException;
 import reader.DataReader;
 import utils.Calculator;
 import utils.TriangleCreator;
-import validator.CheckTriangle;
 import validator.TriangleDataValidator;
 import validator.TrianglePointsValidator;
+import validator.TriangleValidator;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,9 +16,9 @@ public class Director {
     Calculator calculator;
     TrianglePointsValidator validator;
     TriangleCreator creator;
-    CheckTriangle checkTriangle;
+    TriangleValidator checkTriangle;
 
-    public void runner() {
+    public void runner(String path) throws DataReaderException {
         reader = new DataReader();
         dataValidator = new TriangleDataValidator();
         calculator = new Calculator();
@@ -26,21 +27,11 @@ public class Director {
             List<String> list = reader.readLines("C:\\Users\\sasha\\IdeaProjects\\geometry\\src\\main\\resources\\triangleData");
             for (String line: list) {
                 if(dataValidator.isValidLine(line)){
-                    checkTriangle = trianglePoints -> validator.isPointsInRange(trianglePoints) && validator.isValidTriangle(trianglePoints);
                     creator = new TriangleCreator(checkTriangle);
                     creator.create(line);
                     Optional<Triangle> optionalTriangle = creator.create(line);
                     if(optionalTriangle.isPresent()) {
                         Triangle triangle = optionalTriangle.get();
-                        calculator.getSides(triangle);
-                        double firstSide = triangle.getFirstSide();
-                        double secondSide = triangle.getSecondSide();
-                        double thirdSide = triangle.getThirdSide();
-                        calculator.getPerimeter(firstSide, secondSide, thirdSide);
-                        calculator.getSquare(firstSide, secondSide, thirdSide);
-                        calculator.isAcuteAngled();
-                        calculator.isEqualSides();
-                        calculator.isEquilateral();
                      }
                 }
             }

@@ -3,7 +3,7 @@ package validator;
 import java.util.List;
 
 @FunctionalInterface
-public interface CheckTriangle {
+public interface TriangleValidator {
         Boolean isTriangleValid(List<Double> trianglePoints);
 
 }
