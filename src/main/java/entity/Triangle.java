@@ -16,6 +16,10 @@ public class Triangle {
         this.thirdPoint = thirdPoint;
     }
 
+    public Triangle() {
+
+    }
+
     public Point getFirstPoint() {
         return firstPoint;
     }

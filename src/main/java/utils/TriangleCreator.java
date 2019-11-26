@@ -2,6 +2,7 @@ package utils;
 
 import entity.Point;
 import entity.Triangle;
+import entity.TriangleIdentifiable;
 import validator.TriangleValidator;
 
 import java.util.ArrayList;

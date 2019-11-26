@@ -5,9 +5,10 @@ import java.util.UUID;
 
 public class TriangleIdentifiable extends Triangle {
     private UUID id;
-    public TriangleIdentifiable(Point firstPoint, Point secondPoint, Point thirdPoint, UUID id) {
+
+    public TriangleIdentifiable(Point firstPoint, Point secondPoint, Point thirdPoint) {
         super(firstPoint, secondPoint, thirdPoint);
-        this.id = id;
+        id = UUID.randomUUID();
     }
 
     public UUID getId() {
