@@ -32,6 +32,18 @@ public class Triangle {
         return thirdPoint;
     }
 
+    public void setFirstPoint(Point firstPoint) {
+        this.firstPoint = firstPoint;
+    }
+
+    public void setSecondPoint(Point secondPoint) {
+        this.secondPoint = secondPoint;
+    }
+
+    public void setThirdPoint(Point thirdPoint) {
+        this.thirdPoint = thirdPoint;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {

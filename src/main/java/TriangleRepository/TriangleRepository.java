@@ -2,27 +2,27 @@ package TriangleRepository;
 
 import TriangleSpecification.TriangleSpecification;
 import entity.Triangle;
-import entity.TriangleIdentifiable;
+import entity.TriangleObservable;
 
 import java.util.*;
 
 public class TriangleRepository implements TriangleDataRepository {
-    public Map<UUID, TriangleIdentifiable> store = new HashMap<>();
+    public Map<UUID, TriangleObservable> store = new HashMap<>();
 
     @Override
-    public void addTriangle(TriangleIdentifiable triangle){
+    public void addTriangle(TriangleObservable triangle){
         UUID id = triangle.getId();
 
         store.put(id, triangle);
     }
 
     @Override
-    public void removeTriangle(TriangleIdentifiable triangle){
+    public void removeTriangle(TriangleObservable triangle){
         store.remove(triangle.getId());
     }
 
     @Override
-    public void updateTriangle(TriangleIdentifiable triangle){
+    public void updateTriangle(TriangleObservable triangle){
         store.replace(triangle.getId(), triangle);
 
     }
@@ -30,7 +30,7 @@ public class TriangleRepository implements TriangleDataRepository {
     @Override
     public List query(TriangleSpecification triangleSpecification) {
         List<Triangle> triangleSpecified = new ArrayList<>();
-        for (TriangleIdentifiable triangle : store.values()) {
+        for (TriangleObservable triangle : store.values()) {
             if(triangleSpecification.specified(triangle)){
                 triangleSpecified.add(triangle);
             }
