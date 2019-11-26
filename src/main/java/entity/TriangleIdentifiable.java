@@ -1,15 +1,16 @@
 package entity;
 
 import java.util.Objects;
+import java.util.UUID;
 
 public class TriangleIdentifiable extends Triangle {
-    private long id;
-    public TriangleIdentifiable(Point firstPoint, Point secondPoint, Point thirdPoint, long id) {
+    private UUID id;
+    public TriangleIdentifiable(Point firstPoint, Point secondPoint, Point thirdPoint, UUID id) {
         super(firstPoint, secondPoint, thirdPoint);
         this.id = id;
     }
 
-    public long getId() {
+    public UUID getId() {
         return id;
     }
 
