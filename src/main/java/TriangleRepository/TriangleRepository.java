@@ -1,10 +1,13 @@
+package TriangleRepository;
+
+import TriangleSpecification.TriangleSpecification;
 import entity.Triangle;
 import entity.TriangleIdentifiable;
 
 import java.util.*;
 
 public class TriangleRepository implements TriangleDataRepository {
-    Map<UUID, TriangleIdentifiable> store = new HashMap<>();
+    public Map<UUID, TriangleIdentifiable> store = new HashMap<>();
 
     @Override
     public void addTriangle(TriangleIdentifiable triangle){

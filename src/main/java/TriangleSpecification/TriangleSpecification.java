@@ -1,3 +1,5 @@
+package TriangleSpecification;
+
 import entity.TriangleIdentifiable;
 
 public interface TriangleSpecification {

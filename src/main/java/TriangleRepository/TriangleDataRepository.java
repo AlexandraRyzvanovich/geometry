@@ -1,3 +1,6 @@
+package TriangleRepository;
+
+import TriangleSpecification.TriangleSpecification;
 import entity.TriangleIdentifiable;
 
 import java.util.List;

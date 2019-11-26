@@ -1,3 +1,6 @@
+package TriangleSpecification;
+
+import TriangleSpecification.TriangleSpecification;
 import entity.TriangleIdentifiable;
 
 import java.util.UUID;
