@@ -41,10 +41,7 @@ public class Side {
         if(secondSide != side.secondSide){
             return false;
         }
-        if(thirdSide != side.thirdSide){
-            return false;
-        }
-        return true;
+        return thirdSide == side.thirdSide;
     }
 
     @Override

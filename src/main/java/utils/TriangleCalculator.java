@@ -89,9 +89,8 @@ public class TriangleCalculator {
         double firstSide = Math.pow(Math.pow((x1 - x2), 2) + Math.pow((y1 - y2), 2), 1.0 / 2.0);
         double secondSide = Math.pow(Math.pow((x1 - x3), 2) + Math.pow((y1 - y3), 2), 1.0 / 2.0);
         double thirdSide = Math.pow(Math.pow((x2 - x3), 2) + Math.pow((y2 - y3), 2), 1.0 / 2.0);
-        Side side = new Side(firstSide, secondSide, thirdSide);
 
-        return side;
+        return new Side(firstSide, secondSide, thirdSide);
     }
 
     private List<Double> calculateAngles(Triangle triangle) {

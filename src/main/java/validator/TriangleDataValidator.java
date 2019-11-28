@@ -4,7 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class TriangleDataValidator {
-    private static Logger logger = LogManager.getLogger();
+    private static final Logger logger = LogManager.getLogger();
 
     private final String REGEX_LINE = "([+-]?\\d+(\\.\\d+)?(d|D)?(\\s+|$))+$";
 

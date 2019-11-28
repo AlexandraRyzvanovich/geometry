@@ -1,7 +1,5 @@
 package entity;
 
-import java.util.Objects;
-
 public class Point {
     private final double x;
     private final double y;
@@ -34,10 +32,7 @@ public class Point {
         if(x != point.x){
             return false;
         }
-        if(y != point.y){
-            return false;
-        }
-        return true;
+        return y == point.y;
     }
 
     @Override

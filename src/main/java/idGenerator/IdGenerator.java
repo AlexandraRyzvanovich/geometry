@@ -1,7 +1,7 @@
 package idGenerator;
 
 public class IdGenerator {
-    private long id = 0;
+    private Long id;
     public static long idIncremented;
 
     public IdGenerator() {

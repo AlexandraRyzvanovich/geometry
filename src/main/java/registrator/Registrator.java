@@ -9,8 +9,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Registrator implements Observer<TriangleObservable> {
-    Map<Long, TriangleParams> triangleParamsMap;
-    TriangleCalculator calculator;
+    final Map<Long, TriangleParams> triangleParamsMap;
+    final TriangleCalculator calculator;
 
     public Registrator() {
         this.triangleParamsMap = new HashMap<>();

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TriangleObservable extends TriangleIdentifiable implements Observable {
-    private List<Observer> observers;
+    private final List<Observer> observers;
 
     public TriangleObservable(Point firstPoint, Point secondPoint, Point thirdPoint) {
         super(firstPoint, secondPoint, thirdPoint);

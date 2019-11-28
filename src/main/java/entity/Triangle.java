@@ -58,10 +58,7 @@ public class Triangle {
         if(secondPoint != triangle.secondPoint){
             return false;
         }
-        if(thirdPoint != triangle.thirdPoint){
-            return false;
-        }
-        return true;
+        return thirdPoint == triangle.thirdPoint;
     }
 
     @Override

@@ -2,7 +2,6 @@ package utils;
 
 import entity.Point;
 import entity.Triangle;
-import entity.TriangleIdentifiable;
 import validator.TriangleValidator;
 
 import java.util.ArrayList;
@@ -10,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class TriangleCreator {
-    private TriangleValidator validator;
+    private final TriangleValidator validator;
 
     public TriangleCreator(TriangleValidator validator) {
         this.validator = validator;

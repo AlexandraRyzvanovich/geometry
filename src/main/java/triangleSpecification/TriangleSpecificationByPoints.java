@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TriangleSpecificationByPoints implements TriangleSpecification {
-    private double minPoint;
-    private double maxPoint;
+    private final double minPoint;
+    private final double maxPoint;
 
     public TriangleSpecificationByPoints(double minPoint, double maxPoint) {
         this.minPoint = minPoint;

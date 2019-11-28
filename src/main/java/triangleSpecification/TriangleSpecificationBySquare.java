@@ -4,9 +4,9 @@ import entity.TriangleIdentifiable;
 import utils.TriangleCalculator;
 
 public class TriangleSpecificationBySquare implements TriangleSpecification {
-    private double minSquare;
-    private double maxSquare;
-    private TriangleCalculator calculator;
+    private final double minSquare;
+    private final double maxSquare;
+    private final TriangleCalculator calculator;
 
     public TriangleSpecificationBySquare(double minSquare, double maxSquare) {
         this.minSquare = minSquare;

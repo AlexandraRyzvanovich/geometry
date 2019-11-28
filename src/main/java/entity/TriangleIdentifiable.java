@@ -4,8 +4,8 @@ import idGenerator.IdGenerator;
 import java.util.Objects;
 
 public class TriangleIdentifiable extends Triangle{
-    private long id;
-    IdGenerator idGenerator;
+    private final long id;
+    final IdGenerator idGenerator;
 
     public TriangleIdentifiable(Point firstPoint, Point secondPoint, Point thirdPoint) {
         super(firstPoint, secondPoint, thirdPoint);

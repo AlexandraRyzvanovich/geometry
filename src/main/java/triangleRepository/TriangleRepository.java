@@ -3,12 +3,11 @@ package triangleRepository;
 import triangleSpecification.TriangleSpecification;
 import entity.Triangle;
 import entity.TriangleIdentifiable;
-import java.util.Comparator;
 
 import java.util.*;
 
 public class TriangleRepository implements TriangleDataRepository {
-    public Map<Long, TriangleIdentifiable> store = new HashMap<>();
+    public final Map<Long, TriangleIdentifiable> store = new HashMap<>();
 
     @Override
     public void addTriangle(TriangleIdentifiable triangle){

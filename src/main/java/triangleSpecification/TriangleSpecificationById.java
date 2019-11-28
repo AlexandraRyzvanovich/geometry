@@ -5,9 +5,9 @@ import entity.TriangleIdentifiable;
 import java.util.UUID;
 
 public class TriangleSpecificationById implements TriangleSpecification {
-    private UUID id;
+    private final long id;
 
-    public TriangleSpecificationById(UUID id) {
+    public TriangleSpecificationById(long id) {
         this.id = id;
     }
 
