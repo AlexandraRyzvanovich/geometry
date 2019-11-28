@@ -3,6 +3,7 @@ package triangleRepository;
 import triangleSpecification.TriangleSpecification;
 import entity.Triangle;
 import entity.TriangleIdentifiable;
+import java.util.Comparator;
 
 import java.util.*;
 
@@ -35,5 +36,13 @@ public class TriangleRepository implements TriangleDataRepository {
             }
         }
         return triangleSpecified;
+    }
+
+    @Override
+    public List sorted(Comparator<TriangleIdentifiable> comparator) {
+        List<TriangleIdentifiable> triangleList = new ArrayList<>(store.values());
+        triangleList.sort(comparator);
+
+        return triangleList;
     }
 }

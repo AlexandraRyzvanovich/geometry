@@ -1,12 +1,9 @@
 package entity;
 
 import idGenerator.IdGenerator;
-import sun.rmi.rmic.iiop.IDLGenerator;
-
 import java.util.Objects;
-import java.util.UUID;
 
-public class TriangleIdentifiable extends Triangle {
+public class TriangleIdentifiable extends Triangle{
     private long id;
     IdGenerator idGenerator;
 
@@ -19,6 +16,7 @@ public class TriangleIdentifiable extends Triangle {
     public long getId() {
         return id;
     }
+
 
     @Override
     public boolean equals(Object o) {
