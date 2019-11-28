@@ -2,8 +2,6 @@ package triangleSpecification;
 
 import entity.TriangleIdentifiable;
 
-import java.util.UUID;
-
 public class TriangleSpecificationById implements TriangleSpecification {
     private final long id;
 
