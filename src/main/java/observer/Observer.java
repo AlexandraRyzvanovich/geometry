@@ -1,7 +1,7 @@
 package observer;
 
-import entity.TriangleObservable;
+import observable.TriangleObservable;
 
-public interface Observer {
+public interface Observer<T> {
     void update(TriangleObservable triangle);
 }

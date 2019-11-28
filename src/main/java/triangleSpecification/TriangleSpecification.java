@@ -1,4 +1,4 @@
-package TriangleSpecification;
+package triangleSpecification;
 
 import entity.TriangleIdentifiable;
 

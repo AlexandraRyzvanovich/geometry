@@ -1,6 +1,5 @@
-package TriangleSpecification;
+package triangleSpecification;
 
-import TriangleSpecification.TriangleSpecification;
 import entity.Point;
 import entity.TriangleIdentifiable;
 
@@ -8,9 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TriangleSpecificationByPoints implements TriangleSpecification {
+    private double minPoint;
+    private double maxPoint;
 
-    private final double MIN_POINT = 10;
-    private final double MAX_POINT = 100;
+    public TriangleSpecificationByPoints(double minPoint, double maxPoint) {
+        this.minPoint = minPoint;
+        this.maxPoint = maxPoint;
+    }
 
     @Override
     public boolean specified(TriangleIdentifiable triangle) {
@@ -25,7 +28,7 @@ public class TriangleSpecificationByPoints implements TriangleSpecification {
         points.add(thirdPoint.getX());
         points.add(thirdPoint.getY());
         for (double point: points) {
-            if(point < MIN_POINT || point > MAX_POINT ){
+            if(point < minPoint || point > maxPoint ){
                 return false;
             }
         }

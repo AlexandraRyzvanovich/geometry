@@ -1,9 +1,5 @@
 package entity;
 
-import entity.Point;
-
-import java.util.Objects;
-
 public class Triangle {
     private Point firstPoint;
     private Point secondPoint;
