@@ -3,6 +3,6 @@ package observable;
 import registrator.Observer;
 
 public interface Observable {
-    void attach(Observer observer);
-    void remove(Observer observer);
+    void attachObserver(Observer observer);
+    void removeObserver(Observer observer);
 }

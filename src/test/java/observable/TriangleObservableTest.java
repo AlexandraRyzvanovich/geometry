@@ -2,36 +2,50 @@ package observable;
 
 import entity.Point;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import registrator.Observer;
 import registrator.Registrator;
-import triangleRepository.TriangleRepository;
 
-import java.util.Calendar;
 import java.util.List;
 
 public class TriangleObservableTest {
+    private final Registrator REGISTRATOR = new Registrator();
+    private final Point POINT = new Point(4.0, 5.0);
+    private final long TRIANGLE_ID = 1;
     private List<Observer> observers;
-    private TriangleObservable triangleObservable;
-    private final Point point = new Point(4.0, 5.0);
-    private final long id = 1;
-
-    @BeforeClass
-    public void setUp(){
-        triangleObservable = new TriangleObservable(id, point, point, point);
-    }
 
     @Test
-    public void testAttachObserverShouldReturnObserversListOfSizeOneWhenOneObserverAdded(){
+    public void testAttachObserverToEmptyListShouldReturnListLengthOneWhenOneObserverAdded(){
         //given
-
+        TriangleObservable triangleObservable = new TriangleObservable(TRIANGLE_ID, POINT, POINT, POINT);
         observers = triangleObservable.getObservers();
         //when
-        triangleObservable.attach(new Registrator());
+        triangleObservable.attachObserver(new Registrator());
         //then
-        Assert.assertNotNull(observers.size());
         Assert.assertEquals(observers.size(), 1);
     }
 
+
+    @Test
+    public void testRemoveObserverFromOneSizeListShouldReturnListLengthZeroWhenOneObserverRemoved(){
+        //given
+        TriangleObservable triangleObservable = new TriangleObservable(TRIANGLE_ID, POINT, POINT, POINT);
+        triangleObservable.attachObserver(REGISTRATOR);
+        observers = triangleObservable.getObservers();
+        //when
+        triangleObservable.removeObserver(REGISTRATOR);
+        //then
+        Assert.assertEquals(observers.size(), 0);
+    }
+
+    @Test
+    public void testRemoveObserverShouldReturnZeroWhenListLengthZeroWhenTryRemoveOneObserver(){
+        //given
+        TriangleObservable triangleObservable = new TriangleObservable(TRIANGLE_ID, POINT, POINT, POINT);
+        observers = triangleObservable.getObservers();
+        //when
+        triangleObservable.removeObserver(REGISTRATOR);
+        //then
+        Assert.assertEquals(observers.size(), 0);
+    }
 }

@@ -35,12 +35,12 @@ public class TriangleObservable extends TriangleIdentifiable implements Observab
     }
 
     @Override
-    public void attach(Observer observer) {
+    public void attachObserver(Observer observer) {
         observers.add(observer);
     }
 
     @Override
-    public void remove(Observer observer) {
+    public void removeObserver(Observer observer) {
         if(observers.size() > 0) {
             observers.remove(observer);
         }
