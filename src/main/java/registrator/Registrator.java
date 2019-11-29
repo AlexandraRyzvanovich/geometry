@@ -2,7 +2,6 @@ package registrator;
 
 import entity.TriangleParams;
 import observable.TriangleObservable;
-import observer.Observer;
 import utils.TriangleCalculator;
 
 import java.util.HashMap;

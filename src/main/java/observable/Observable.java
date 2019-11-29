@@ -1,6 +1,6 @@
 package observable;
 
-import observer.Observer;
+import registrator.Observer;
 
 public interface Observable {
     void attach(Observer observer);

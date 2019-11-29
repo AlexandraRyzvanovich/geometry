@@ -1,4 +1,4 @@
-package observer;
+package registrator;
 
 import observable.TriangleObservable;
 

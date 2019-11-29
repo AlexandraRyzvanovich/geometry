@@ -2,7 +2,7 @@ package observable;
 
 import entity.Point;
 import entity.TriangleIdentifiable;
-import observer.Observer;
+import registrator.Observer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,8 +10,8 @@ import java.util.List;
 public class TriangleObservable extends TriangleIdentifiable implements Observable {
     private final List<Observer> observers;
 
-    public TriangleObservable(Point firstPoint, Point secondPoint, Point thirdPoint) {
-        super(firstPoint, secondPoint, thirdPoint);
+    public TriangleObservable(long id, Point firstPoint, Point secondPoint, Point thirdPoint) {
+        super(id, firstPoint, secondPoint, thirdPoint);
         observers = new ArrayList<>();
     }
     
@@ -28,6 +28,10 @@ public class TriangleObservable extends TriangleIdentifiable implements Observab
     public void setThirdPoint(Point thirdPoint){
         super.setThirdPoint(thirdPoint);
         notifyObservers();
+    }
+
+    public List<Observer> getObservers() {
+        return observers;
     }
 
     @Override
