@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataReader {
-    private static final Logger logger = LogManager.getLogger();
+    private static final Logger LOGGER = LogManager.getLogger();
 
     public  List<String> readLines(String path) throws DataReaderException {
         BufferedReader bufferedReader = null;
@@ -28,9 +28,9 @@ public class DataReader {
             if (bufferedReader != null) {
                 try {
                     bufferedReader.close();
-                    logger.info("File was parsed successfully");
+                    LOGGER.info("File was parsed successfully");
                 } catch (IOException e) {
-                    logger.error("Unable to close bufferReader", e);
+                    LOGGER.error("Unable to close bufferReader", e);
                 }
             }
         }

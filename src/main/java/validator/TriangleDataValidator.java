@@ -6,7 +6,7 @@ import org.apache.logging.log4j.Logger;
 public class TriangleDataValidator {
     private static final Logger logger = LogManager.getLogger();
 
-    private final String REGEX_LINE = "([+-]?\\d+(\\.\\d+)?(d|D)?(\\s+|$))+$";
+    private final String REGEX_LINE = "([+-]?\\d+(\\.\\d+)?([dD])?(\\s+|$))+$";
 
     public Boolean isValidLine(String line) {
         logger.info("Validating line");
