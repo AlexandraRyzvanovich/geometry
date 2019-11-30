@@ -3,7 +3,7 @@ package entity;
 import java.util.Objects;
 
 public class TriangleIdentifiable extends Triangle{
-    private long id;
+    private final long id;
 
     public TriangleIdentifiable(long id, Point firstPoint, Point secondPoint, Point thirdPoint) {
         super(firstPoint, secondPoint, thirdPoint);
