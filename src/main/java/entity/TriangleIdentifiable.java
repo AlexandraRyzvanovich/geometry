@@ -3,7 +3,7 @@ package entity;
 import java.util.Objects;
 
 public class TriangleIdentifiable extends Triangle{
-    private final long id;
+    private long id;
 
     public TriangleIdentifiable(long id, Point firstPoint, Point secondPoint, Point thirdPoint) {
         super(firstPoint, secondPoint, thirdPoint);
@@ -19,18 +19,25 @@ public class TriangleIdentifiable extends Triangle{
         if (this == o){
             return true;
         }
-        if (!(o instanceof TriangleIdentifiable)) {
+        if(o == null){
+            return false;
+        }
+        if(getClass() != o.getClass()){
             return false;
         }
         if (!super.equals(o)) {
             return false;
         }
-        TriangleIdentifiable that = (TriangleIdentifiable) o;
-        return getId() == that.getId();
+        TriangleIdentifiable triangle = (TriangleIdentifiable) o;
+        return getId() == triangle.getId();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), getId());
+        int prime = 31;
+        int result = 1;
+        result = prime * result + super.hashCode();
+        result = (int)(prime * result + id);
+        return result;
     }
 }
