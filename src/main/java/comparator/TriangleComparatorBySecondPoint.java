@@ -10,12 +10,12 @@ public class TriangleComparatorBySecondPoint implements Comparator<TriangleIdent
     public int compare(TriangleIdentifiable firstTriangle, TriangleIdentifiable secondTriangle) {
         Point firstTrianglePoint = firstTriangle.getSecondPoint();
         Point secondTrianglePoint = secondTriangle.getSecondPoint();
-        if(firstTrianglePoint.getX() == secondTrianglePoint.getX()
-                && firstTrianglePoint.getY() == secondTrianglePoint.getY()){
+        if (firstTrianglePoint.getX() == secondTrianglePoint.getX()
+                && firstTrianglePoint.getY() == secondTrianglePoint.getY()) {
             return 0;
         }
-        if(firstTrianglePoint.getX() > secondTrianglePoint.getX()
-                && firstTrianglePoint.getY() > secondTrianglePoint.getY()){
+        if (firstTrianglePoint.getX() > secondTrianglePoint.getX()
+                && firstTrianglePoint.getY() > secondTrianglePoint.getY()) {
             return 1;
         }
         else {
