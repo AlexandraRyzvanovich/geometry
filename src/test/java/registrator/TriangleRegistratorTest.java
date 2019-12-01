@@ -10,15 +10,15 @@ import utils.TriangleCalculator;
 
 import java.util.Map;
 
-public class RegistratorTest {
+public class TriangleRegistratorTest {
     private Map<Long, TriangleParams> triangleParamsMap;
-    Registrator registrator;
+    TriangleRegistrator triangleRegistrator;
 
     @BeforeClass
     public void setUp(){
         TriangleCalculator calculator = new TriangleCalculator();
-        registrator = new Registrator(calculator);
-        triangleParamsMap = registrator.triangleParamsMap;
+        triangleRegistrator = new TriangleRegistrator(calculator);
+        triangleParamsMap = triangleRegistrator.triangleParamsMap;
         TriangleParams params = new TriangleParams(8, 88);
         triangleParamsMap.put((long) 10000, params);
     }
@@ -28,7 +28,7 @@ public class RegistratorTest {
         //given
         TriangleObservable triangle = new TriangleObservable(10000, new Point(1, 3), new Point(5,7), new Point(8, 10));
         //when
-        registrator.update(triangle);
+        triangleRegistrator.update(triangle);
         //then
         TriangleParams newParams = triangleParamsMap.get((long)10000);
         Assert.assertEquals(newParams.getPerimeter(), 19.79898987322333);

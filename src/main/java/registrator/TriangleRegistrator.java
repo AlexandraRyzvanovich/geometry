@@ -7,19 +7,19 @@ import utils.TriangleCalculator;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Registrator implements Observer<TriangleObservable> {
+public class TriangleRegistrator implements Observer<TriangleObservable> {
     public final Map<Long, TriangleParams> triangleParamsMap = new HashMap<>();
     private final TriangleCalculator calculator;
 
-    private static Registrator instance;
+    private static TriangleRegistrator instance;
 
-    public Registrator(TriangleCalculator calculator) {
+    public TriangleRegistrator(TriangleCalculator calculator) {
         this.calculator = calculator;
     }
 
-    public static Registrator getInstance() {
+    public static TriangleRegistrator getInstance() {
         if(instance == null) {
-            instance = new Registrator(new TriangleCalculator());
+            instance = new TriangleRegistrator(new TriangleCalculator());
         }
         return instance;
     }

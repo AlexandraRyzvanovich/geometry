@@ -4,13 +4,13 @@ import entity.Point;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import registrator.Observer;
-import registrator.Registrator;
+import registrator.TriangleRegistrator;
 import utils.TriangleCalculator;
 
 import java.util.List;
 
 public class TriangleObservableTest {
-    private final Registrator REGISTRATOR = new Registrator(new TriangleCalculator());
+    private final TriangleRegistrator TriangleREGISTRATOR = new TriangleRegistrator(new TriangleCalculator());
     private final Point POINT = new Point(4.0, 5.0);
     private final long TRIANGLE_ID = 1;
     private List<Observer> observers;
@@ -21,7 +21,7 @@ public class TriangleObservableTest {
         TriangleObservable triangleObservable = new TriangleObservable(TRIANGLE_ID, POINT, POINT, POINT);
         observers = triangleObservable.getObservers();
         //when
-        triangleObservable.attachObserver(new Registrator(new TriangleCalculator()));
+        triangleObservable.attachObserver(new TriangleRegistrator(new TriangleCalculator()));
         //then
         Assert.assertEquals(observers.size(), 1);
     }
@@ -31,10 +31,10 @@ public class TriangleObservableTest {
     public void testRemoveObserverFromOneSizeListShouldReturnListLengthZeroWhenOneObserverRemoved(){
         //given
         TriangleObservable triangleObservable = new TriangleObservable(TRIANGLE_ID, POINT, POINT, POINT);
-        triangleObservable.attachObserver(REGISTRATOR);
+        triangleObservable.attachObserver(TriangleREGISTRATOR);
         observers = triangleObservable.getObservers();
         //when
-        triangleObservable.removeObserver(REGISTRATOR);
+        triangleObservable.removeObserver(TriangleREGISTRATOR);
         //then
         Assert.assertEquals(observers.size(), 0);
     }
@@ -45,7 +45,7 @@ public class TriangleObservableTest {
         TriangleObservable triangleObservable = new TriangleObservable(TRIANGLE_ID, POINT, POINT, POINT);
         observers = triangleObservable.getObservers();
         //when
-        triangleObservable.removeObserver(REGISTRATOR);
+        triangleObservable.removeObserver(TriangleREGISTRATOR);
         //then
         Assert.assertEquals(observers.size(), 0);
     }
