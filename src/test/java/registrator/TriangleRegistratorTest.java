@@ -34,6 +34,4 @@ public class TriangleRegistratorTest {
         Assert.assertEquals(newParams.getPerimeter(), 19.79898987322333);
         Assert.assertEquals( newParams.getSquare(), 207.6535576386786);
     }
-
-
 }
