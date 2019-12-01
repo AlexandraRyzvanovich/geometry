@@ -11,7 +11,7 @@ public class TrianglePointsValidator implements TriangleValidator{
         double y2 = listPoints.get(3);
         double x3 = listPoints.get(4);
         double y3 = listPoints.get(5);
-        double square = (((x1 - x3)*(y2 - y3)) - (x2 - x3)*(y1 - y3))/2;
+        double square = (((x1 - x3) * (y2 - y3)) - (x2 - x3) * (y1 - y3)) / 2;
 
         return square > 0;
     }

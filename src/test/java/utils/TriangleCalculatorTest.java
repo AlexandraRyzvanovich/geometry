@@ -3,11 +3,16 @@ package utils;
 import entity.Point;
 import entity.Triangle;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class TriangleCalculatorTest {
-    TriangleCalculator calculator = new TriangleCalculator();
+    private TriangleCalculator calculator;
 
+    @BeforeClass
+    public void setUp(){
+        calculator = new TriangleCalculator();
+    }
     @Test
     public void testCalculatePerimeterShouldReturnPerimeterOfFiftySixWhenCalculate(){
         Triangle triangle

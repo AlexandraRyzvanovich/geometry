@@ -1,7 +1,5 @@
 package entity;
 
-import java.util.Objects;
-
 public class TriangleParams {
     private double perimeter;
     private double square;

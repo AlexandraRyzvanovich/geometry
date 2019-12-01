@@ -18,7 +18,7 @@ public class TriangleRegistrator implements Observer<TriangleObservable> {
     }
 
     public static TriangleRegistrator getInstance() {
-        if(instance == null) {
+        if (instance == null) {
             instance = new TriangleRegistrator(new TriangleCalculator());
         }
         return instance;

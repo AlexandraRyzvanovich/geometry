@@ -1,7 +1,5 @@
 package entity;
 
-import java.util.Objects;
-
 public class TriangleIdentifiable extends Triangle{
     private final long id;
 

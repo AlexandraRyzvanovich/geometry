@@ -54,14 +54,13 @@ public class TriangleRepositoryTest {
         //then
         TriangleIdentifiable tr = triangleStore.get((long)1);
         Assert.assertEquals(triangleStore.size(), 1);
-        Assert.assertTrue(tr.getFirstPoint().equals(new Point(5.0, 6.0)));
+        Assert.assertEquals(new Point(5.0, 6.0), tr.getFirstPoint());
     }
 
     @Test
     public void testQueryShouldReturnOneSizeListWhenSpecificationByIdGiven(){
         //given
         repository = new TriangleRepository();
-        triangleStore = repository.store;
         repository.addTriangle(new TriangleIdentifiable(1, new Point(4.0, 5.0), new Point(4.0, 5.0), new Point(4.0, 5.0)));
         repository.addTriangle(new TriangleIdentifiable(2, new Point(5.0, 6.0), new Point(7.0, 8.0), new Point(9.0, 10.0)));
         TriangleSpecification spec = new TriangleSpecificationById(1);
@@ -76,7 +75,6 @@ public class TriangleRepositoryTest {
     public void testSortedShouldReturnListSortedByIdWhenComparatorByIdGiven(){
         //given
         repository = new TriangleRepository();
-        triangleStore = repository.store;
         repository.addTriangle(new TriangleIdentifiable(100, new Point(4.0, 5.0), new Point(4.0, 5.0), new Point(4.0, 5.0)));
         repository.addTriangle(new TriangleIdentifiable(10, new Point(5.0, 6.0), new Point(7.0, 8.0), new Point(9.0, 10.0)));
         repository.addTriangle(new TriangleIdentifiable(1, new Point(5.0, 6.0), new Point(7.0, 8.0), new Point(9.0, 10.0)));
