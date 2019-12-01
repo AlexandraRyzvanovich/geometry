@@ -88,5 +88,4 @@ public class TriangleRepositoryTest {
         Assert.assertEquals(listSorted.get(1).getId(), 10);
         Assert.assertEquals(listSorted.get(2).getId(), 100);
     }
-
 }

@@ -6,12 +6,11 @@ import utils.TriangleCalculator;
 public class TriangleSpecificationByPerimeter  implements TriangleSpecification {
     private final double minPerimeter;
     private final double maxPerimeter;
-    private final TriangleCalculator calculator;
+    private final TriangleCalculator calculator = new TriangleCalculator();
 
     public TriangleSpecificationByPerimeter(double minPerimeter, double maxPerimeter){
         this.minPerimeter = minPerimeter;
         this.maxPerimeter = maxPerimeter;
-        this.calculator = new TriangleCalculator();
     }
 
     @Override
