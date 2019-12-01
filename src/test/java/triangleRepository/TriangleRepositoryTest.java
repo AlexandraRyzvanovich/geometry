@@ -79,11 +79,12 @@ public class TriangleRepositoryTest {
         repository.addTriangle(new TriangleIdentifiable(10, new Point(5.0, 6.0), new Point(7.0, 8.0), new Point(9.0, 10.0)));
         repository.addTriangle(new TriangleIdentifiable(1, new Point(5.0, 6.0), new Point(7.0, 8.0), new Point(9.0, 10.0)));
         Comparator<TriangleIdentifiable> comparator = new TriangleComparatorById();
-        //when
         List<TriangleIdentifiable> listSorted = repository.sorted(comparator);
-        //then
-        Assert.assertEquals(listSorted.get(0).getId(), 1);
-        Assert.assertEquals(listSorted.get(1).getId(), 10);
-        Assert.assertEquals(listSorted.get(2).getId(), 100);
+        TriangleIdentifiable first = listSorted.get(0);
+        TriangleIdentifiable second = listSorted.get(1);
+        TriangleIdentifiable third = listSorted.get(2);
+        Assert.assertEquals(first.getId(), 1);
+        Assert.assertEquals(second.getId(), 10);
+        Assert.assertEquals(third.getId(), 100);
     }
 }

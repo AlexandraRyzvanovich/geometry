@@ -28,8 +28,8 @@ public class TriangleCreatorTest {
     }
     @Test
     public void testCreatorShouldReturnOptionalEmptyTriangleWhenLineInvalid(){
-        String line = "1.2 1.2 1.2 1.2 1.2";
+        String line = "1.2 1.2 1.2 1.2 1.2 1.2";
         Optional<Triangle> triangle = creator.create(line);
-        Assert.assertTrue(triangle.isPresent());
+        Assert.assertFalse(triangle.isPresent());
     }
 }

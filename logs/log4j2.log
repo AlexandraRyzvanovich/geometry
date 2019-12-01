@@ -2,3 +2,13 @@
 2019-12-01 17:59:33,377 INFO v.TriangleDataValidator [main] Validating line
 2019-12-01 17:59:33,380 INFO v.TriangleDataValidator [main] Validating line
 2019-12-01 17:59:33,382 INFO v.TriangleDataValidator [main] Validating line
+2019-12-01 19:43:29,217 INFO r.DataReader [main] File was parsed successfully
+2019-12-01 19:43:29,283 INFO v.TriangleDataValidator [main] Validating line
+2019-12-01 19:43:29,284 INFO v.TriangleDataValidator [main] Validating line
+2019-12-01 19:43:29,288 INFO v.TriangleDataValidator [main] Validating line
+2019-12-01 19:43:29,289 INFO v.TriangleDataValidator [main] Validating line
+2019-12-01 19:45:05,332 INFO r.DataReader [main] File was parsed successfully
+2019-12-01 19:45:05,361 INFO v.TriangleDataValidator [main] Validating line
+2019-12-01 19:45:05,362 INFO v.TriangleDataValidator [main] Validating line
+2019-12-01 19:45:05,363 INFO v.TriangleDataValidator [main] Validating line
+2019-12-01 19:45:05,363 INFO v.TriangleDataValidator [main] Validating line

@@ -31,7 +31,7 @@ public class TriangleCalculator {
                 *(perimeter - secondSide) * (perimeter-thirdSide)), 1.0 / 2.0);
     }
 
-    public Boolean isRectangular(Triangle triangle) { //прямоугольный
+    public Boolean isRectangular(Triangle triangle) {
         List<Double> angles = calculateAngles(triangle);
         double firstAngle = angles.get(0);
         double secondAngle = angles.get(1);
@@ -39,7 +39,7 @@ public class TriangleCalculator {
         return firstAngle == rightAngle || secondAngle == rightAngle || thirdAngle == rightAngle;
     }
 
-    public Boolean isEqualSides(Triangle triangle) { //равнобедренный
+    public Boolean isEqualSides(Triangle triangle) {
         List<Double> angles = calculateAngles(triangle);
         double firstAngle = angles.get(0);
         double secondAngle = angles.get(1);
@@ -48,7 +48,7 @@ public class TriangleCalculator {
 
     }
 
-    public Boolean isEquilateral(Triangle triangle) { // равносторонний
+    public Boolean isEquilateral(Triangle triangle) {
         sides = calculateSides(triangle);
         double firstSide = sides.getFirstSide();
         double secondSide = sides.getSecondSide();
@@ -57,7 +57,7 @@ public class TriangleCalculator {
         return firstSide == secondSide && firstSide == thirdSide;
     }
 
-    public Boolean isAcuteAngled(Triangle triangle) { // остроугольный
+    public Boolean isAcuteAngled(Triangle triangle) {
         List<Double> angles = calculateAngles(triangle);
         double firstAngle = angles.get(0);
         double secondAngle =angles.get(1);
@@ -66,7 +66,7 @@ public class TriangleCalculator {
         return firstAngle < rightAngle && secondAngle < rightAngle && thirdAngle < rightAngle;
     }
 
-    public Boolean isObtuseAngle(Triangle triangle) { // тупоугольный
+    public Boolean isObtuseAngle(Triangle triangle) {
         List<Double> angles = calculateAngles(triangle);
         double firstAngle = angles.get(0);
         double secondAngle = angles.get(1);
