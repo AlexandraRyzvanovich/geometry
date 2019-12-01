@@ -1,11 +1,11 @@
 package entity;
 
-public class Side {
+public class Sides {
     private final double firstSide;
     private final double secondSide;
     private final double thirdSide;
 
-    public Side(double firstSide, double secondSide, double thirdSide) {
+    public Sides(double firstSide, double secondSide, double thirdSide) {
         this.firstSide = firstSide;
         this.secondSide = secondSide;
         this.thirdSide = thirdSide;
@@ -34,14 +34,14 @@ public class Side {
         if (getClass() != o.getClass()){
             return false;
         }
-        Side side = (Side) o;
-        if(firstSide != side.firstSide){
+        Sides sides = (Sides) o;
+        if(firstSide != sides.firstSide){
             return false;
         }
-        if(secondSide != side.secondSide){
+        if(secondSide != sides.secondSide){
             return false;
         }
-        return thirdSide == side.thirdSide;
+        return thirdSide == sides.thirdSide;
     }
 
     @Override

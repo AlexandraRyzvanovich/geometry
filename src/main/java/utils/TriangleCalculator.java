@@ -1,7 +1,7 @@
 package utils;
 
 import entity.Point;
-import entity.Side;
+import entity.Sides;
 import entity.Triangle;
 
 import java.util.ArrayList;
@@ -9,10 +9,10 @@ import java.util.List;
 
 public class TriangleCalculator {
     private final int rightAngle = 90;
-    private Side sides;
+    private Sides sides;
 
     public Double calculatePerimeter(Triangle triangle) {
-        Side sides = calculateSides(triangle);
+        Sides sides = calculateSides(triangle);
         double firstSide = sides.getFirstSide();
         double secondSide = sides.getSecondSide();
         double thirdSide = sides.getThirdSide();
@@ -21,7 +21,7 @@ public class TriangleCalculator {
     }
 
     public Double calculateSquare(Triangle triangle) {
-        Side sides = calculateSides(triangle);
+        Sides sides = calculateSides(triangle);
         double firstSide = sides.getFirstSide();
         double secondSide = sides.getSecondSide();
         double thirdSide = sides.getThirdSide();
@@ -50,7 +50,7 @@ public class TriangleCalculator {
     }
 
     public Boolean isEquilateral(Triangle triangle) { // равносторонний
-        Side sides = calculateSides(triangle);
+        Sides sides = calculateSides(triangle);
         double firstSide = sides.getFirstSide();
         double secondSide = sides.getSecondSide();
         double thirdSide = sides.getThirdSide();
@@ -76,7 +76,7 @@ public class TriangleCalculator {
         return firstAngle > rightAngle && secondAngle > rightAngle && thirdAngle > rightAngle;
     }
 
-    private Side calculateSides(Triangle triangle) {
+    private Sides calculateSides(Triangle triangle) {
 
         Point firstPoint = triangle.getFirstPoint();
         double x1 = firstPoint.getX();
@@ -91,11 +91,11 @@ public class TriangleCalculator {
         double secondSide = Math.pow(Math.pow((x1 - x3), 2) + Math.pow((y1 - y3), 2), 1.0 / 2.0);
         double thirdSide = Math.pow(Math.pow((x2 - x3), 2) + Math.pow((y2 - y3), 2), 1.0 / 2.0);
 
-        return new Side(firstSide, secondSide, thirdSide);
+        return new Sides(firstSide, secondSide, thirdSide);
     }
 
     private List<Double> calculateAngles(Triangle triangle) {
-        Side sides = calculateSides(triangle);
+        Sides sides = calculateSides(triangle);
         double firstSide = sides.getFirstSide();
         double secondSide = sides.getSecondSide();
         double thirdSide = sides.getThirdSide();
