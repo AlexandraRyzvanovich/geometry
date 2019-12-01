@@ -23,7 +23,6 @@ public class TriangleRepository implements TriangleDataRepository {
     @Override
     public void updateTriangle(TriangleIdentifiable triangle){
         store.replace(triangle.getId(), triangle);
-
     }
 
     @Override

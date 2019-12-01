@@ -5,16 +5,16 @@ import entity.TriangleIdentifiable;
 
 import java.util.Comparator;
 
-public class TriangleComparatorByPoint implements Comparator<TriangleIdentifiable> {
+public class TriangleComparatorBySecondPoint implements Comparator<TriangleIdentifiable> {
     @Override
     public int compare(TriangleIdentifiable firstTriangle, TriangleIdentifiable secondTriangle) {
-        Point firstTrianglePoint = firstTriangle.getFirstPoint();
-        Point secondTrianglePoint = secondTriangle.getFirstPoint();
+        Point firstTrianglePoint = firstTriangle.getSecondPoint();
+        Point secondTrianglePoint = secondTriangle.getSecondPoint();
         if(firstTrianglePoint.getX() == secondTrianglePoint.getX()
                 && firstTrianglePoint.getY() == secondTrianglePoint.getY()){
             return 0;
         }
-        if(firstTriangle.getFirstPoint().getX() > secondTriangle.getFirstPoint().getX()
+        if(firstTrianglePoint.getX() > secondTrianglePoint.getX()
                 && firstTrianglePoint.getY() > secondTrianglePoint.getY()){
             return 1;
         }

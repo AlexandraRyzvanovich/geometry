@@ -9,6 +9,7 @@ import java.util.List;
 
 public class TriangleCalculator {
     private final int rightAngle = 90;
+    private Side sides;
 
     public Double calculatePerimeter(Triangle triangle) {
         Side sides = calculateSides(triangle);

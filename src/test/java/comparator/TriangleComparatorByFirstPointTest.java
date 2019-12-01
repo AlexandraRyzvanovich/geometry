@@ -6,14 +6,14 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class TriangleComparatorByPointTest {
-    private TriangleComparatorByPoint comparator;
+public class TriangleComparatorByFirstPointTest {
+    private TriangleComparatorByFirstPoint comparator;
     private final TriangleIdentifiable COMPARABLE_TRIANGLE
             = new TriangleIdentifiable(2, new Point(8, 9), new Point(5, 9), new Point(15, 66));
 
     @BeforeClass
     public void setUp(){
-        comparator = new TriangleComparatorByPoint();
+        comparator = new TriangleComparatorByFirstPoint();
     }
 
     @Test

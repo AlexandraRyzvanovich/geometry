@@ -8,12 +8,20 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Registrator implements Observer<TriangleObservable> {
-    final Map<Long, TriangleParams> triangleParamsMap;
-    final TriangleCalculator calculator;
+    private Map<Long, TriangleParams> triangleParamsMap = new HashMap<>();
+    private TriangleCalculator calculator;
 
-    public Registrator() {
-        this.triangleParamsMap = new HashMap<>();
-        this.calculator = new TriangleCalculator();
+    private static Registrator instance;
+
+    public Registrator(TriangleCalculator calculator) {
+        this.calculator = calculator;
+    }
+
+    public static Registrator getInstance(){
+        if(instance == null){
+            instance = new Registrator(new TriangleCalculator());
+        }
+        return instance;
     }
 
     @Override
